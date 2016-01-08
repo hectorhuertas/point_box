@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'mocha/mini_test'
+# require 'factory_girl_rails'
 
 OmniAuth.config.test_mode = true
 
