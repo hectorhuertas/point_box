@@ -1,2 +1,2 @@
-<h1> <%= @user.username %>'s Dashboard </h1>
-<h2> <%= pluralize @user.points, 'point' %> </h2> 
+<h1> <%= current_user.username %>'s Dashboard </h1>
+<h2> <%= pluralize current_user.points, 'point' %> </h2>

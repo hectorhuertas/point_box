@@ -1,4 +1,7 @@
+<h1>Account Registration</h1>
 <%= form_for @user do |f|%>
+
+  <%=  render 'shared/error_messages', object: f.object %>
 
   <%= f.label :username %>
   <%= f.text_field :username %>
