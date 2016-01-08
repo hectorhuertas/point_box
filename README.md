@@ -1,3 +1,5 @@
+https://travis-ci.org/hectorhuertas/travis-broken-example.svg?branch=master
+
 == README
 
 This README would normally document whatever steps are necessary to get the
