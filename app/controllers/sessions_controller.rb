@@ -14,4 +14,11 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    user = current_user
+    session.clear
+    flash[:notice] = "Goodbye, #{user.username}"
+    redirect_to login_path
+  end
 end
