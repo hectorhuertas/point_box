@@ -1,3 +1,4 @@
 <h1> <%= current_user.username %>'s Dashboard </h1>
 <h2> <%= pluralize current_user.points, 'point' %> </h2>
+<h2><%= pluralize current_user.rewards.count, 'reward' %> </h2>
 <%= link_to "Logout", logout_path, method: :delete %>

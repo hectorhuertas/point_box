@@ -16,6 +16,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user != current_user
+      flash[:notice] = "Stay on your own page, bro!"
+      redirect_to user_path(current_user)
+    end
   end
 
   private
