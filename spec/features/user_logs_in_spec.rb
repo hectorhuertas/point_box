@@ -8,7 +8,7 @@ RSpec.describe "user logs in" do
 
       visit login_path
 
-      fill_in "Username", with: "Peter"
+      fill_in "Username", with: user.username
       fill_in "Password", with: "pass"
       click_on "Login"
 
@@ -24,7 +24,7 @@ RSpec.describe "user logs in" do
 
       visit login_path
 
-      fill_in "Username", with: "Peter"
+      fill_in "Username", with: user.username
       fill_in "Password", with: "Peter"
       click_on "Login"
 

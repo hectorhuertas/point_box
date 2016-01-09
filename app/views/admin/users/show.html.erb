@@ -1,0 +1,18 @@
+Welcome, <%= current_user.username %>
+
+
+<%= form_for(:point_manager, url: "/admin/manage-points", method: :patch) do |f| %>
+    <%= f.select :user_id, @usernames  %>
+
+    <%= f.label :points %>
+    <%= f.number_field :points %>
+
+    <%= f.submit "Modify Points"%>
+<% end %>
+
+<% @users.each do |user| %>
+
+  <h2><%= user.username %></h2>
+  <%= pluralize user.points, "point" %>
+  <%= pluralize user.redeemed_points, "redeemed point" %>
+<% end %>
