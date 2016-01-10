@@ -16,6 +16,6 @@ class Admin::RewardsController < Admin::BaseController
 
   private
     def reward_params
-      params.require(:reward).permit(:name, :cost)
+      params.require(:reward).permit(:name, :cost, :picture)
     end
 end

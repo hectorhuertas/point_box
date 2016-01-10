@@ -2,5 +2,6 @@
 <% @rewards.each do |reward| %>
 <div id="reward-<%= reward.id %>">
   <%= reward.name %>: <%= pluralize reward.cost, 'point' %>
+  <%= image_tag reward.picture.url %>
 </div>
 <% end %>

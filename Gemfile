@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'figaro'
 gem 'omniauth-oauth2'
+gem 'paperclip'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
