@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/buy', to: 'users#buy'
+
   namespace :admin do
-    resources :users, only: [:show]
+    resources :users, only: [:show, :new, :create]
     resources :rewards, only: [:index, :new, :create]
     patch 'manage-points', to: 'users#manage_points'
   end
+
+  resources :rewards, only: [:index]
 end

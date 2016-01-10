@@ -1,0 +1,4 @@
+<div id="reward-<%= reward.id %>">
+  <%= reward.name %>: <%= pluralize reward.cost, 'point' %>
+  <%= link_to "Buy", buy_path(reward_id: reward.id) %>
+</div>

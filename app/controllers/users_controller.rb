@@ -16,9 +16,23 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @rewards = @user.rewards
     if @user != current_user
       flash[:notice] = "Stay on your own page, bro!"
       redirect_to user_path(current_user)
+    end
+  end
+
+  def buy
+    reward = Reward.find(params[:reward_id])
+    if user_has_enough_points_to_buy?(reward)
+      current_user.rewards << reward
+      new_total = current_user.points - reward.cost
+      current_user.update_attributes(points: new_total, redeemed_points: reward.cost)
+      redirect_to current_user
+    else
+      flash[:error] = "You do not have enough points to buy that"
+      redirect_to rewards_path
     end
   end
 
@@ -26,5 +40,10 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation)
+    end
+
+    def user_has_enough_points_to_buy?(reward)
+      user = current_user
+      (user.points - reward.cost) >= 0
     end
 end

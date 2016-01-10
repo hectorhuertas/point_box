@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:info] = "Welcome back, #{user.username}"
-      redirect_to current_user
+      if current_user.admin?
+        redirect_to admin_user_path(current_user)
+      else
+        redirect_to current_user
+      end
     else
       flash[:error] = "Username or password are incorrect"
       render :new
