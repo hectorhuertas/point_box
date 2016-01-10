@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:show]
+    resources :rewards, only: [:index, :new, :create]
     patch 'manage-points', to: 'users#manage_points'
   end
 end

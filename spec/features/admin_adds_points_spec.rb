@@ -19,4 +19,15 @@ RSpec.describe "admin add points to user" do
     expect(page).to have_content "14 points"
     #use within to target proper user
   end
+
+  context "user add points to themselves" do
+    scenario "laptop explodes" do
+      user = FactoryGirl.create(:user, password: 'pass')
+      ApplicationController.any_instance.stub(:current_user).and_return(user)
+
+      visit admin_user_path(user)
+
+      expect(page).to have_content "The page you were looking for doesn't exist"
+    end
+  end
 end

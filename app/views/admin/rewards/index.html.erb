@@ -1,0 +1,6 @@
+<%= link_to "New Reward", new_admin_reward_path %>
+<% @rewards.each do |reward| %>
+<div id="reward-<%= reward.id %>">
+  <%= reward.name %>: <%= pluralize reward.cost, 'point' %>
+</div>
+<% end %>
