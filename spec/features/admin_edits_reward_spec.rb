@@ -7,7 +7,7 @@ RSpec.describe "admin edits reward" do
     ApplicationController.any_instance.stub(:current_user).and_return(admin)
 
     visit admin_user_path(admin)
-    click_on "View Rewards"
+    click_on "Rewards"
 
     expect(page).to have_content "Jelly Beans"
     expect(page).to have_content "20"
