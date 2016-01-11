@@ -3,6 +3,6 @@
 <h2><%= pluralize current_user.rewards.count, 'reward' %> </h2>
 <br>
 <h2>Your Rewards:</h2>
-<%= render @rewards %>
+<%= render 'user_rewards' %>
 <%= link_to "Logout", logout_path, method: :delete %>
 <%= link_to "Redeem points", rewards_path %>

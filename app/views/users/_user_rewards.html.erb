@@ -1,0 +1,6 @@
+<% @rewards.each do |reward| %>
+  <div id="reward-<%= reward.id %>">
+    <%= reward.name %>
+    <%= image_tag reward.picture.url %>
+  </div>
+<% end %>

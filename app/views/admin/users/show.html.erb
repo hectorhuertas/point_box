@@ -2,7 +2,10 @@ Welcome, <%= current_user.username %>
 
 <%= link_to "Create new user", new_admin_user_path %>
 <%= link_to "Create new reward", new_admin_reward_path %>
-<%= link_to "View Rewards", admin_rewards_path %>
+
+<%= link_to "Rewards", admin_rewards_path %>
+<%= link_to "Logout", logout_path, method: :delete %>
+
 <%= form_for(:point_manager, url: "/admin/manage-points", method: :patch) do |f| %>
     <%= f.select :user_id, @usernames  %>
 
