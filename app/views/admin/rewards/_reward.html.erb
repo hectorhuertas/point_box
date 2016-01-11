@@ -1,0 +1,6 @@
+<div id="reward-<%= reward.id %>">
+  <%= reward.name %>: <%= pluralize reward.cost, 'point' %>
+  <%= image_tag reward.picture.url %>
+  <%= link_to "Edit Reward", edit_admin_reward_path(reward) %>
+  <%= link_to "Delete Reward", admin_reward_path(reward), method: :delete %>
+</div>

@@ -1,13 +1,2 @@
-<%= form_for([:admin, @reward]) do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :cost %>
-  <%= f.number_field :cost %>
-  <br>
-  <%= f.file_field :picture %>
-  <br>
-  <%= f.submit %>
-<% end %>
+<%= provide(:button, "Create Reward") %>
+<%= render 'reward_form' %>
