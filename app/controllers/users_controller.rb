@@ -27,8 +27,9 @@ class UsersController < ApplicationController
     reward = Reward.find(params[:reward_id])
     if user_has_enough_points_to_buy?(reward)
       current_user.rewards << reward
-      current_user.points -= reward.cost
-      current_user.redeemed_points += reward.cost
+      available_points = current_user.points - reward.cost
+      redeemed_points = current_user.redeemed_points + reward.cost
+      current_user.update_attributes(points: available_points, redeemed_points: redeemed_points)
       redirect_to current_user
     else
       flash[:error] = "You do not have enough points to buy that"
